@@ -20,9 +20,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    if account_update_params[:image].present?
+      resource.image.attach(account_update_params[:image])
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -39,6 +42,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # protected
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -59,4 +66,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  def after_update_path_for(resource)
+    users_show_path
+  end
 end
