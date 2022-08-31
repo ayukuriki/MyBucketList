@@ -1,0 +1,293 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css");
+@import "color.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.header{
+  height: 80px;
+  background-color: $white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.header-container{
+  margin: 0 30px;
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+}
+.header-left{
+  width: 35%;
+  h1{
+    color: $main-color;
+    font-size: 32px;
+    font-family: 'Viga', sans-serif;
+  } 
+}
+.header-right{
+  width: 65%;
+  right: 0;
+}
+.header-nav-item{
+  margin-right: 20px;
+  margin-top: 5px;
+}
+.nav{
+  display: flex;
+  border-bottom: none;
+}
+.nav-text{
+  text-decoration: none;
+  color: $main-color;
+  font-size: 15px;
+  font-weight: bold;
+}
+.page-container{
+  min-height: calc(100vh - 80px);
+  padding-top: 40px;
+  padding-bottom: 30px;
+  background:$back-color;
+  
+}
+.page-container2{
+  min-height: calc(100vh - 80px);
+  padding-top: 40px;
+  padding-bottom: 30px;
+  background-color: $main-transparent;
+}
+.footer {
+  color: $white;
+  background: $sub-color;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+}
+.footer .copyright {
+  margin: 0;
+  padding: auto; 
+  height: 30px;
+}
+.nav-tabs{
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  border-bottom: 1px solid $border-gray-color;
+}
+.nav-item{
+  background-color: $white;
+    .nav-link{
+      color: $nav-link-color;
+      font-weight: bold;
+    }
+    &:nth-child(1){
+      border-radius: 10px 10px 0px 0px;
+      border-right: 1px solid $border-gray-color;
+    }
+    &:nth-child(2){
+      border-radius: 10px 10px 0px 0px;
+    }
+}
+.inside-container{
+  border-radius: 0px 20px 20px 20px;
+  background-color: $white;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 30px;
+}
+.form-container{
+  border-radius: 20px 20px 20px 20px;
+  border: 2px solid $brown;
+  width: 50%;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 30px 30px 30px 30px;
+  background-color: $white;
+}
+
+.another-btn{
+  color: $brown;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  padding-top: 7px;
+  margin-right: 20px;
+
+  &:hover{
+    color: $main-color;
+  }
+
+}
+
+.form-content{
+  width: 100%;
+  position: relative;
+  
+  h2{
+    margin: 0 0 30px 0;
+    text-align: center;
+    color: $brown;
+    font-weight: bold;
+  }
+  p{
+    font-family: 'Kiwi Maru', serif;
+
+    text-align: center;
+  }
+  .field-item-container{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    .field-item{
+      width: 100%;
+      margin-bottom: 10px;
+    
+      .item-label{
+        width: 100%;
+        color: $main-color;
+        font-weight: bold;
+        display: inline;
+      }
+      .item-sub-label{
+        font-size: 13px;
+        color: $main-color;
+      }
+      .item-text{
+        width: 100%;
+        font-family: 'Kiwi Maru', serif;
+        font-weight: bold;
+        font-size: 25px;
+      }
+      .item-sub-text{
+        width: 100%;
+        font-family: 'Kiwi Maru', serif;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .short-field{
+        width: 30%;
+        border: 1px solid $form-frame-color;
+        border-radius: 5px;
+        display: inline;
+        &:focus{
+          border: 1px solid $main-color;
+          outline: 1px solid $main-color;
+        }
+      }
+      .text-field{
+        width: 100%;
+        border: 1px solid $form-frame-color;
+        border-radius: 5px;
+
+        &:focus{
+          border: 1px solid $main-color;
+          outline: 1px solid $main-color;
+        }
+      }
+      .text-box{
+        width: 100%;
+        height: 100px;
+        border: 1px solid $form-frame-color;
+        border-radius: 5px;
+        &:focus{
+          border: 1px solid $main-color;
+          outline: 1px solid $main-color;
+        }
+      }
+    }
+    .actions{
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      .submit-btn {
+        width: 80px;
+        height: 40px;
+        background-color: $main-color;
+        color: $white;
+        border: none;
+        border-radius: 10px;
+
+        &:hover{
+          background-color: $white;
+          color: $main-color;
+          border: 1px solid $main-color;
+        }
+      }  
+    }
+  }
+}  
+
+@media screen and (max-width:880px) {
+  .header{
+    height: 100px;
+  }
+  .header-container{
+    display: block;
+  }
+  .header-left{
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border-gray-color;
+    h1{
+      margin: auto;
+      font-size: 25px;
+    } 
+  }
+  .header-right{
+    width: 100%;
+    margin-left: 10px;
+  }
+  .header-nav-item{
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+  .nav-text{
+    font-size: 13px;
+  }
+}
+
+.error {
+  color:$main-color;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: auto;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: $sub-transparent;
+
+  ul{
+    padding: 0;
+    margin: 0;
+    li{
+      list-style: none;
+    }
+  }
+}

@@ -1,3 +1,182 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "color.scss";
+
+.top-conainer{
+  margin: 0;
+}
+.main-section{
+  width: 100%;
+  height: 600px;
+  background-image: image-url('main-image.jpg');
+  background-size: cover;
+  background-color: $sub-transparent;
+}
+
+.main-section-cover{
+  width: 100%;
+  height: 600px;
+  content:"";
+  position:absolute;
+  font-size:100px;
+  color:$white;
+  background-color: $sub-transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-content{
+  text-align: center;
+  h1{
+    font-size: 45px;
+  }
+  h2{
+    font-size: 25px;
+  }
+}
+.about-section{
+  width: 100%;
+  background-color: $sub-transparent;
+  display: flex;
+  justify-content: center;
+  color: $brown;
+}
+.about-content{
+  margin: 30px;
+  text-align: center;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  h3{
+    margin: 20px;
+  }
+  p{
+    margin: 20px;
+    margin-bottom: 60px;
+    font-size: 15px;
+  }
+}
+.section-title{
+  margin-bottom: 40px;
+}
+.section-title-container{
+  margin-bottom: 70px;
+  p{
+    width: 100%;
+  }
+}
+.feature-section{
+  margin: 0;
+  width: 100%;
+  padding-bottom: 50px;
+  padding-top: 30px;
+}
+.feature-content{
+  margin: 30px;
+  text-align: center;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+.important{
+  text-decoration:underline;
+  text-decoration-color:$main-color;
+}
+
+.feature-item-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+
+  &:nth-child(even){
+    background-color: $sub-color;
+    flex-direction: row-reverse;
+  }
+  h4{
+    max-width: 500px;
+  }
+  p{
+    margin: 20px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    max-width: 500px;
+  }
+}
+.feature-info{
+  width: 50%;
+}
+.feature-description{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: left;
+  color: $brown;
+  h4{
+    margin-left: 20px;
+    margin-top: 5%;
+    margin-bottom: 0;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 25px;
+  }
+  p{
+    margin-top: 5%;
+  }
+}
+.feature-image-container{
+  width: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.feature-image{
+  margin: 20px;
+  width: 80%;
+}
+
+@media screen and (max-width:800px) {
+  .about-content{
+    text-align: left;
+  }
+  .section-title{
+    text-align: left;
+    h3{
+      text-align: center;
+    }
+  }
+  .feature-item-container{
+    display: block;
+    margin-left: 0;
+    border: 10px;
+    border-radius:10px;
+    &:nth-child(odd){
+      border: 1px solid $sub-color;
+    }
+  }
+  .feature-info{
+    width: 100%;
+  }
+  .feature-description{
+    margin-bottom: 0;
+    margin-left: 7%;
+    p{
+      font-size: 15px;
+    }
+  }
+  .feature-image-container{
+    width: 100%;
+  }
+}
+@media screen and (min-width:1200px) {
+  .feature-item-container{
+
+    &:nth-child(3){
+      .feature-info{
+        h4{
+          margin-left: 20%;
+        }
+        p{
+          margin-left: 20%;
+        }
+      }
+    }
+  }
+}
