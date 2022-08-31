@@ -1,0 +1,2 @@
+class AchievedList < ApplicationRecord
+end
