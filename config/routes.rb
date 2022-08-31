@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :lists, only: [:new, :create, :edit, :update, :destroy]
   resources :achieved_lists, only: [:index, :new, :create, :destroy]
   resources :questions, only: [:index, :show, :new, :create]
+  resources :advices, only: [:create, :destroy]
   resources :achieved_lists do
     resource :congrats, only: [:create, :destroy]
  end
