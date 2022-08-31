@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-  before_action :set_categories
 
   def index
     
