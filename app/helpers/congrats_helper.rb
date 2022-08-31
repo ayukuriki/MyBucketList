@@ -1,0 +1,2 @@
+module CongratsHelper
+end
