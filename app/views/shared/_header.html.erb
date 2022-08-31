@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="header-container">
+    <div class="header-left">
+      <h1>MY BUCKET LIST</h1>
+    </div>
+    <div class="header-rigtht">
+      <ul class="nav">
+      <% if user_signed_in? %>
+        <li class="header-nav-item">
+          <%= link_to "TOP", root_path, class: "nav-text" %>
+        </li>
+        <li class="header-nav-item">
+          <%= link_to "BUCKET LIST", mypage_path, class: "nav-text" %>
+        </li>
+        # <li class="header-nav-item">
+        #   <%= link_to "達成ルーム", achieved_lists_path, class: "nav-text" %> 
+        # </li>
+        # <li class="header-nav-item">
+        #   <%= link_to "アドバイス広場", questions_path, class: "nav-text" %> 
+        # </li>
+        # <li class="header-nav-item">
+        #   <%= link_to "#{current_user.name.upcase}", users_show_path, class: "nav-text" %> 
+        # </li>
+      <% else %> 
+        <li class="header-nav-item">
+          <%= link_to "TOP", root_path, class: "nav-text" %>
+        </li>
+        <li class="header-nav-item">
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-text" %> 
+        </li>
+        <li class="header-nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-text" %>  
+        </li>
+      <% end %> 
+      </ul>    
+    </div>
+  </div>
+</header>
