@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "my_achieved_lists" => "achieved_lists#my_index"
   resources :lists, only: [:new, :create, :edit, :update, :destroy]
   resources :achieved_lists, only: [:index, :new, :create, :destroy]
+  resources :questions, only: [:index, :show, :new, :create]
   resources :achieved_lists do
     resource :congrats, only: [:create, :destroy]
  end
