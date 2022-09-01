@@ -1,1 +1,55 @@
-<h1>my achieved!</h1>
+<div class="page-container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= link_to "#{current_user.name}の記録", my_achieved_lists_path, class:"nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "みんなの記録", achieved_lists_path, class:"nav-link" %>
+    </li>
+  </ul>
+  <div class="inside-container">
+  <div class="achieved-list-title">
+    <h2><%= current_user.name %>の達成記録<h2>
+    <p>自分の達成記録を振り返ろう！<p>
+  </div>
+    <div class="achieved-panel-container">
+      <% @achieved_lists.each do |achieved_list| %>
+        <div class="achieved-panel-frame">
+          <div class="achieved-panel-upper">
+          </div>
+          <div class="achieved-panel">
+            <div class="achieved-image-container">
+              <% if achieved_list.image.attached? %>
+                <%= image_tag achieved_list.image, class: "achieved-image" %>
+              <% else %>
+                <%= image_tag "no-images.png", class: "achieved-image" %>
+              <% end %>
+            </div>
+            <div class="achieved-info-container">
+              <div class="achieved-info">
+                <h4><%= achieved_list.title %></h4>
+                <p>達成日:<%= achieved_list.achieved_date.strftime("%Y年%m月%d日") %></p>
+                <p>達成レポ:<br /><%= achieved_list.report %></p>
+                <div class="congrats-container">
+                  <% if achieved_list.congrated?(current_user) %>
+                    <%= link_to achieved_list_congrats_path(achieved_list.id), method: :delete, class:"link" do %>
+                      <span>おめでとう</span>
+                      <span style="color:tomato;"><i class="fa-solid fa-hands-clapping"></i></span>
+                      <span><%= achieved_list.congrats.count %></span>
+                    <% end %>
+                  <% else %>
+                    <%= link_to achieved_list_congrats_path(achieved_list.id), method: :post, class:"link" do %>
+                      <span>おめでとう</span>
+                      <span><i class="fa-solid fa-hands-clapping"></i></span>
+                      <span><%= achieved_list.congrats.count %></span>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>   
+            </div>   
+          </div>   
+        </div>   
+      <% end %>
+    </div>   
+  </div>   
+</div>   
