@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      list: リスト
+    attributes:
+      list:
+        title: リスト名
+        category_id: カテゴリー
+        target_year: 目標達成期限
+        public: 公開設定
+        description: メモ

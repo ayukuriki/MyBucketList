@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      advice: アドバイス
+    attributes:
+      advice:
+        content: 内容

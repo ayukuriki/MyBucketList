@@ -5,7 +5,7 @@ class AdvicesController < ApplicationController
       flash[:success] = "アドバイスを投稿しました"
       redirect_to question_path(@advice.question_id)
     else
-      render question_path(@advice.question_id)
+      redirect_to question_path(@advice.question_id)
     end
   end
 

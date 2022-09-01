@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      achieved_list: 達成リスト
+    attributes:
+      achieved_list:
+        title: リスト名
+        category_id: カテゴリー
+        report: 達成レポ
+        achieved_date: 達成日
+        public: 公開設定
