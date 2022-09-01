@@ -12,15 +12,15 @@
         <li class="header-nav-item">
           <%= link_to "BUCKET LIST", mypage_path, class: "nav-text" %>
         </li>
-        # <li class="header-nav-item">
-        #   <%= link_to "達成ルーム", achieved_lists_path, class: "nav-text" %> 
-        # </li>
-        # <li class="header-nav-item">
-        #   <%= link_to "アドバイス広場", questions_path, class: "nav-text" %> 
-        # </li>
-        # <li class="header-nav-item">
-        #   <%= link_to "#{current_user.name.upcase}", users_show_path, class: "nav-text" %> 
-        # </li>
+        <li class="header-nav-item">
+          <%= link_to "達成ルーム", achieved_lists_path, class: "nav-text" %> 
+        </li>
+        <li class="header-nav-item">
+          <%= link_to "アドバイス広場", questions_path, class: "nav-text" %> 
+        </li>
+        <li class="header-nav-item">
+          <%= link_to "#{current_user.name.upcase}", users_show_path, class: "nav-text" %> 
+        </li>
       <% else %> 
         <li class="header-nav-item">
           <%= link_to "TOP", root_path, class: "nav-text" %>
