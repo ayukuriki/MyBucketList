@@ -1,1 +1,29 @@
-<h1>new questions!</h1>
+<div class="page-container">
+  <div class="form-container">
+    <div class="form-content">
+      <h2>新規質問作成</h2>
+      <div class="field-item-container">
+        <%= form_for (@question) do |f| %>
+
+          <div class="field-item">
+            <%= f.label :質問名, class: "item-label" %><br />
+            <%= f.text_field :title, class: "text-field" %>
+          </div>
+          <div class="field-item">
+            <%= f.label :カテゴリー, class: "item-label" %><br />
+            <%= f.collection_select(
+              :category_id, @categories, :id, :name, {prompt: "選択してください"}, {class: "text-field"}
+            ) %>
+          </div>
+          <div class="field-item">
+            <%= f.label :質問内容, class: "item-label" %><br />
+            <%= f.text_area :content, class:"text-box" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "投稿", class:"submit-btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
