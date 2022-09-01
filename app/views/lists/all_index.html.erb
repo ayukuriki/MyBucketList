@@ -1,1 +1,56 @@
-<h1>sharepage!</h1>
+<div class="page-container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= link_to "#{current_user.name}のリスト", mypage_path, class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "みんなのリスト", sharepage_path, class:"nav-link active" %>
+    </li>
+  </ul>
+  <div class="inside-container">
+    <div class="notice">
+      <p>※非公開リストは表示されていません</p>
+    </div>
+    <div class="new-list">
+      <%= link_to(new_list_path) do %> 
+        <button type="button" class="btn btn-outline-success create-btn">+ 新規</button>
+      <% end %>
+    </div>  
+    <div class="panel-container">
+      <% @lists.each do |list| %>
+        <% @category = @categories.find(list.category_id) %>
+        <div class="list-panel">
+          <%= render partial: 'category_check', locals: { category: @category } %>
+          <div class="panel-lower">
+            <h2><%= list.title %></h2>
+            <span>メモ:</span>
+            <p><%= list.description %></p>
+            <div class="list-user-info">
+              <% @user = @users.find(list.user_id) %>
+              <% if @user.image.attached? %>
+                <%= image_tag @user.image, class: "list-user-image" %>
+              <% else %>
+              <%= image_tag "default_icon.jpg", class: "list-user-image" %>
+                <% end %>
+              <h3><%= @user.name %><h3>
+            </div>
+            <% if list.user_id == current_user.id %>
+              <div class="list-icons">
+                <div class="icon-link">
+                  <%= link_to  edit_list_path(list) do %>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  <% end %>
+                </div>
+                <div class="icon-link">
+                  <%= link_to list_path(list.id), method: :delete do %>
+                    <i class="fa-solid fa-trash-can"></i>
+                  <% end %>
+                </div>
+              </div>  
+            <% end %>  
+          </div> 
+        </div>
+      <% end %>
+    </div>
+  </div>  
+</div>
