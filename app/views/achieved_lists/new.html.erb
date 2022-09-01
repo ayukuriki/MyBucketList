@@ -1,1 +1,44 @@
-<h1>new achieved!</h1>
+<div class="page-container">
+  <div class="form-container">
+    <div class="form-content">
+      <h2>達成おめでとう</h2>
+      <p>達成の記録は設定を'公開'にするとみんなにシェアできるよ！</p>
+      <div class="field-item-container">
+        <%= form_with model: @achieved_list do |f| %>
+          
+          <div class="field-item">
+            <span class="item-label">リスト名:</span>
+            <span class="item-text"><%= @list.title %></span>
+            <%= f.hidden_field :title, value: @list.title %>
+          </div>
+          <div class="field-item">
+            <% @category = @categories.find(@list.category_id) %>
+            <span class="item-label">カテゴリー:</span>
+            <span class="item-sub-text"><%= @category.name %></span>
+            <%= f.hidden_field :category_id, value: @list.category_id %>
+          </div>
+          <div class="field-item">
+            <%= f.label :達成レポ, class:"item-label" %><br />
+            <%= f.text_area :report, class:"text-box" %>
+          </div>
+          <div class="field-item">
+            <%= f.label :達成日, class:"item-label" %><br />
+            <%= f.date_field :achieved_date, class:"text-field" %>
+          </div>
+          <div class="field-item">
+            <%= f.label :公開, class:"item-label" %><br />
+            <%= f.select :public, [['公開',true],['非公開',false]], :placeholder =>"#{@list.public}", class:"short-field" %>
+          </div>
+          <div class="field-item">
+            <%= f.label :記録写真, class:"item-label"%><br />
+            <%= f.file_field :image, accept: '.jpg, .png,'%>
+          </div>
+          <%= f.hidden_field :list_id, value: @list.id %>
+          <div class="actions">
+            <%= f.submit "投稿する", class:"submit-btn" %>
+          </div>
+        <% end %>
+      </div>    
+    </div>    
+  </div>    
+</div>
