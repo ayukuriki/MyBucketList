@@ -1,1 +1,30 @@
-<h1>questions!</h1>
+<div class="page-container">
+  <div class="inside-container">
+    <div class="content-header">
+      <div class="title-container">
+        <h2>アドバイス広場<h2>
+        <p>達成のために必要なことをみんなに聞いてみよう！</p>   
+      </div>
+    </div>
+    <div class="btn-container">
+      <div class="new-question">
+        <%= link_to(new_question_path) do %> 
+          <button type="button" class="btn btn-outline-success create-btn">質問する</button>
+        <% end %>
+      </div>
+    </div>
+    <div class="question-container">
+      <% @questions.each do |question| %>
+        <% @category = @categories.find(question.category_id) %>
+        <%= link_to question_path(question.id), class:"no-underline" do %> 
+          <div class="question-panel" >
+            <%= render partial: 'question_panel_left', locals: { category: @category } %>
+            <div class="panel-right">
+              <h4><%= question.title %></h4>
+            </div>
+          </div>
+        <% end %>  
+      <% end %>
+    </div>
+  </div>
+</div>
