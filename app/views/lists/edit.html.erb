@@ -1,1 +1,36 @@
-<h1>editlist!</h1>
+<div class="page-container">
+  <div class="form-container">
+    <div class="form-content">
+      <h2>リストを編集</h2>
+      <p>素敵なリストに編集しよう！<p>
+      <div class="field-item-container">
+        <%= form_for (@list) do |f| %>
+         
+          <div class="field-item">
+            <%= f.label :リスト名, class:"item-label" %><span class="item-sub-label">(16文字以内)</span><br />
+            <%= f.text_field :title, :placeholder =>"#{@list.title}", class:"text-field" %>
+          </div>
+          <div class="field-item">
+            <%= f.label :カテゴリー, class:"item-label" %><br />
+            <%= f.collection_select(:category_id, @categories, :id, :name,  {prompt: "選択してください"} , class:"text-field") %>
+          </div>
+          <div class="field-item">
+            <%= f.label :メモ, class:"item-label" %><span class="item-sub-label">(30文字以内)</span><br />
+            <%= f.text_area :description, class:"text-box" %>
+          </div>
+          <div class="field-item">
+            <%= f.label :目標達成期限, class:"item-label" %><span class="item-sub-label">(自分の年齢を半角数字で記入)</span> <br />
+            <%= f.text_field :target_year, class:"short-field" %><span>歳のとき</span>
+          </div>
+          <div class="field-item">
+            <%= f.label :公開設定, class:"item-label" %> <br />
+            <%= f.select :public, [['公開',true],['非公開',false]], { include_blank: true, selected: 0 }, class:"short-field" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "編集", class:"submit-btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
