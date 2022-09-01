@@ -1,1 +1,73 @@
-<h1>show questions!</h1>
+<div class="page-container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= link_to "一覧に戻る", questions_path, class:"nav-link" %>
+    </li>
+  </ul>
+  <div class="inside-container">
+    <div class="qanda-container">
+      <div class="question-detail-panel">
+        <%= render partial: 'question_panel_left', locals: { category: @category } %>
+        <div class="question-panel-right">
+          <div class="question-info" >      
+            <h4><%= @question.title %></h4>
+            <p><%= @question.content %></p>
+          </div>
+          <div class="question-user-info">
+            <div class="info-item">
+              <p><%= @user.name %></p>
+            </div>
+            <div class="info-item">
+              <% if @user.image.attached? %>
+                <%= image_tag @user.image, class: "question-user-image" %>
+              <% else %>
+                <%= image_tag "default_icon.jpg", class: "question-user-image" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="advice-container">
+        <% @advices.each do |advice| %>
+          <div class="advice">
+            <div class="advice-info" >      
+              <div class="advice-user-info">
+              <% @advice_user = @users.find(advice.user_id) %>
+              <div class="info-item">
+                <% if @advice_user.image.attached? %>
+                  <%= image_tag @advice_user.image, class: "advice-user-image" %>
+                <% else %>
+                  <%= image_tag "default_icon.jpg", class: "advice-user-image" %>
+                <% end %>
+              </div>
+              <div class="info-item">
+                <div class="name"><%= @advice_user.name %></div>
+                <p>さんからのアドバイス</p>
+              </div>
+              </div>
+              <div class="advice-content">
+                <p><%= advice.content %></p>
+              </div>
+            </div>
+            <% if advice.user_id == current_user.id %>
+              <div class="advice-icon-link">
+                <%= link_to  advice_path(advice.id), method: :delete do %>
+                  <i class="fa-solid fa-trash-can"></i>
+                <% end %>
+              </div>
+            <% end %>  
+          </div>
+        <% end %>
+      </div>  
+      <div class="new-advice">
+        <%= form_for (@advice) do |f| %>
+          <%= f.text_area :content, class:"text-box" %>
+          <%= f.hidden_field :question_id, value: @question.id %>
+          <div class="submit-container">
+          <%= f.submit "アドバイスする", class:"submit" %>
+          </div>
+        <% end %>
+      </div>    
+    </div>    
+  </div>    
+</div>
