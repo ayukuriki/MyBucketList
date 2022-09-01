@@ -4,7 +4,7 @@
       <h2>新規質問作成</h2>
       <div class="field-item-container">
         <%= form_for (@question) do |f| %>
-
+          <%= render 'shared/error_messages', model: f.object %>
           <div class="field-item">
             <%= f.label :質問名, class: "item-label" %><br />
             <%= f.text_field :title, class: "text-field" %>

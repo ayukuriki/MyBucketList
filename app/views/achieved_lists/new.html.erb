@@ -5,7 +5,7 @@
       <p>達成の記録は設定を'公開'にするとみんなにシェアできるよ！</p>
       <div class="field-item-container">
         <%= form_with model: @achieved_list do |f| %>
-          
+          <%= render 'shared/error_messages', model: f.object %>
           <div class="field-item">
             <span class="item-label">リスト名:</span>
             <span class="item-text"><%= @list.title %></span>

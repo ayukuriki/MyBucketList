@@ -2,7 +2,6 @@
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>  
   <div class="inside-container">
     <div class="profile-container">
-
       <div class="image-container">
         <% if @user.image.attached? %>
           <%= image_tag @user.image, class: "profile-image" %>

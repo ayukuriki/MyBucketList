@@ -3,8 +3,8 @@
     <div class="form-content">
       <h2>新規リスト作成</h2>
       <div class="field-item-container">
-      <%= form_with model: @list do |f| %>
-        
+        <%= form_with model: @list do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
           <div class="field-item">
             <%= f.label :リスト名, class:"item-label" %><span class="item-sub-label">(16文字以内)</span><br />
             <%= f.text_field :title, class:"text-field" %>
