@@ -17,7 +17,7 @@ class AchievedListsController < ApplicationController
     @list = List.find(@achieved_list.list_id)
     if @achieved_list.save
       redirect_to achieved_lists_path, notice: '達成済リストが更新されました'
-      @list.destroy!
+      @list.destroy
     else
       render "new"
     end
@@ -30,7 +30,7 @@ class AchievedListsController < ApplicationController
   def destroy
     @achieved_list = AchievedList.find(params[:id])
     @achieved_list.user_id = current_user.id
-    @achieved_list.destroy!
+    @achieved_list.destroy
     redirect_to my_achieved_lists_path, notice: 'リストが削除されました'
   end
 
