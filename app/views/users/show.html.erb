@@ -1,1 +1,31 @@
-<h1>profile</h1>
+<div class="page-container">
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>  
+  <div class="inside-container">
+    <div class="profile-container">
+
+      <div class="image-container">
+        <% if @user.image.attached? %>
+          <%= image_tag @user.image, class: "profile-image" %>
+        <% else %>
+          <%= image_tag "default_icon.jpg", class: "profile-image" %>
+        <% end %>
+      </div>
+      <div class="info-container">
+        <div class="info" >
+          <h2><%= @user.name %></h2>
+          <div class="user-info">
+            <p>メールアドレス : <span><%= @user.email %></span></p>
+            <p>BUCKET LISTの数・・・・<span><%= @lists.count %></span></p>
+            <p>達成リストの数・・・・<span><%= @achieved_lists.count %></span></p>
+          </div>
+          <div class="icon-link">
+            <%= link_to edit_user_registration_path, class:"link" do %>
+              <span>プロフィール写真変更</span>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
