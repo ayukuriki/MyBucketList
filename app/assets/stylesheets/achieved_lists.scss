@@ -1,3 +1,104 @@
 // Place all the styles related to the AchievedLists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "color.scss";
+
+.achieved-list-title{
+  padding-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  h2{
+    font-weight: bold;
+  }
+  p{
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: 'Kiwi Maru', serif;
+  }
+}
+.achieved-panel-container{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.achieved-panel-frame{
+  width: 70%;
+  max-width: 800px;
+  border: 1px solid $brown;
+  margin: 0 0 30px 30px;
+  box-shadow: 5px 5px 5px $shadow-color;
+  border-radius: 10px;
+  background-image: image-url("party-background.png");
+  background-size: 100% 70%;
+  background-repeat: no-repeat;
+}
+.achieved-panel{
+  display: flex;
+  margin: 3%;
+  margin-top: 20%;
+  border-radius: 10px;
+  font-family: 'Kiwi Maru', serif;
+}
+.achieved-image-container{
+  width: 50%;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.achieved-image{
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+  border: 1px solid $border-gray-color;
+}
+.achieved-info-container{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  h4{
+    margin-top: 10px;
+    font-size: 27px;
+    margin-bottom: 10px;
+  }
+  p{
+    margin-bottom: 2px;
+    word-wrap: break-word;
+  }
+}
+.congrats-container{
+  margin-top: 20px;
+
+  .link{
+    text-decoration: none;
+    color: $brown;
+  }
+}
+@media screen and (max-width:800px) {
+  .achieved-panel-frame{
+    width: 100%;
+    max-width: 480px;
+    background-size: 100% 40%;
+  }
+  .achieved-panel{
+    display: block;
+  }
+  .achieved-image-container{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .achieved-image{
+    width: 100%;
+  }
+  .achieved-info-container{
+    width: 100%;
+    justify-content: left;
+    padding: 20px;
+  }
+}
