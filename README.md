@@ -65,7 +65,7 @@ AWS
 ### 2.1 達成レポの作成
 
 自分のリストを達成したら、リストにある達成ボタンを押しましょう。
-達成レポートを作成する画面に遷移します。
+達成レポートを作成する画面に遷移します。  
 ![alt](app/assets/images/achieved.png) 
 
 ![alt](app/assets/images/new-achieved.png) 
