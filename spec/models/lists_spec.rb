@@ -10,7 +10,7 @@ RSpec.describe List, type: :model do
         expect(@list).to be_valid
       end
     end
- 
+
     context 'リストの新規登録がうまくいかないとき' do
       it "titleが空だと登録できない" do
         @list.title = ""
@@ -38,5 +38,5 @@ RSpec.describe List, type: :model do
         expect(@list.errors.full_messages).to include("メモは30文字以内で入力してください")
       end
     end
-  end 
+  end
 end

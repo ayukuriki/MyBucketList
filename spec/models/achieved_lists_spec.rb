@@ -10,7 +10,7 @@ RSpec.describe AchievedList, type: :model do
         expect(@achieved_list).to be_valid
       end
     end
- 
+
     context 'リストの新規登録がうまくいかないとき' do
       it "reportが空では登録できない" do
         @achieved_list.report = ""
@@ -28,5 +28,5 @@ RSpec.describe AchievedList, type: :model do
         expect(@achieved_list.errors.full_messages).to include("達成日を入力してください")
       end
     end
-  end 
+  end
 end

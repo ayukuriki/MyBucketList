@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
- 
+
     context '新規登録がうまくいかないとき' do
       it "nameが空だと登録できない" do
         @user.name = ""
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
     end
-  end 
+  end
 
   describe 'パスワードの検証' do
     it 'パスワードと確認用パスワードが間違っている場合、無効であること' do
@@ -57,7 +57,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'パスワードが暗号化されていること' do
-      expect(@user.encrypted_password).to_not eq 'password'
+      expect(@user.encrypted_password).not_to eq 'password'
     end
   end
 end

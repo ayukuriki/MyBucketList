@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Question, type: :model do
+  let(:user) { build :user }
 
-  let(:user){ build :user }
   before do
     @question = FactoryBot.create(:question)
   end
@@ -12,7 +12,7 @@ RSpec.describe Question, type: :model do
         expect(@question).to be_valid
       end
     end
- 
+
     context 'リストの新規登録がうまくいかないとき' do
       it "titleが空だと登録できない" do
         @question.title = ""
@@ -35,5 +35,5 @@ RSpec.describe Question, type: :model do
         expect(@question.errors.full_messages).to include("質問名は32文字以内で入力してください")
       end
     end
-  end 
+  end
 end
