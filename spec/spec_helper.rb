@@ -92,3 +92,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+# require 'selenium-webdriver'
+# Selenium::WebDriver::Chrome.driver_path = '/usr/local/bin/chromedriver'
