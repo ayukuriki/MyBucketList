@@ -13,7 +13,7 @@ Ruby 2.7.3
 Ruby on Rails  6.1.6.1  
 MySQL 5.7.39  
 Docker 20.10.14  
-Bootstrap 5.0  
+Bootstrap 5.1.3
 Rspec  
 Visual Studio Code  
 ## デプロイ方法
