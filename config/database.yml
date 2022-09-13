@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch('MYSQL_USER') { 'user' } %>
   password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
-  host: localhost
+  host: db
 
 development:
   <<: *default
@@ -50,6 +50,8 @@ test:
 #
 production:
   <<: *default
-  database: bucketlist_production
-  username: bucketlist
-  password: <%= ENV['BUCKETLIST_DATABASE_PASSWORD'] %>
+  url: <%= ENV['JAWSDB_URL']&.sub('mysql://', 'mysql2://') %>
+
+  # database: bucketlist_production
+  # username: bucketlist
+  # password: <%= ENV['BUCKETLIST_DATABASE_PASSWORD'] %>
