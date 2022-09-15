@@ -51,11 +51,11 @@ test:
 production:
   <<: *default
   url: <%= ENV['JAWSDB_URL']&.sub('mysql://', 'mysql2://') %>
-  host: <%= ENV['DB_HOSTNAME'] %>
-  port: <%= ENV['DB_PORT'] %>
-  username: <%= ENV['DB_USERNAME'] %>
+  host: us-cdbr-east-06.cleardb.net
+  port: 3306
+  username: bf8d141503f271
   password: <%= ENV['DB_PASSWORD'] %>
-  database: <%= ENV['DB_NAME'] %>
+  database: heroku_cbfc57b82e362e2
 
   # database: bucketlist_production
   # username: bucketlist
