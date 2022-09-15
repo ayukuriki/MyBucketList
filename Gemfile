@@ -71,3 +71,5 @@ gem "aws-sdk-s3", require: false
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
+
+gem "jquery-rails"
