@@ -5,12 +5,12 @@
       <div class="field-item-container">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field-item">
-            <%= f.label :メールアドレス, class:"item-label" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"text-field" %>
+            <%= f.label :メールアドレス, class:"item-label" %><div class="test-user"><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"text-field", placeholder: "テストユーザーはtest@gmail.comと入力" %>
           </div>
           <div class="field-item">
-            <%= f.label :パスワード, class:"item-label" %><br />
-            <%= f.password_field :password, autocomplete: "current-password", class:"text-field" %>
+            <%= f.label :パスワード, class:"item-label" %><div class="test-user"><br />
+            <%= f.password_field :password, autocomplete: "current-password", class:"text-field", placeholder: "テストユーザーはtest123と入力" %>
           </div>
           <% if devise_mapping.rememberable? %>
             <div class="field-item">
