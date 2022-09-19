@@ -4,9 +4,7 @@ services:
     build:
       context: .
     # environment:
-    #   SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
-    environment:
-      SELENIUM_REMOTE_URL: http://webdriver_chrome:4444/wd/hub
+    #   SELENIUM_REMOTE_URL: http://webdriver_chrome:4444/wd/hub
     env_file:
       - ./environments/db.env
     command: bundle exec puma -C config/puma.rb
@@ -17,22 +15,18 @@ services:
       - log-data:/bucketlist/log
     depends_on:
       - db
-      - webdriver_chrome
-  # selenium_chrome:
-  #   image: selenium/standalone-chrome-debug
-  #   logging:
-  #     driver: none
-  # chrome:
-  #   image: seleniarm/standalone-chromium
-  #   ports:
-  #     - "4444:4444"
-  #   shm_size: 2gb
+      # - firefox
+  #     # - chromium
+  # firefox:
+    # build: .
+    # volumes:
+    #   - /tmp/.X11-unix/:/tmp/.X11-unix/
+    # environment:
+    #   - DISPLAY=$DISPLAY
   # chromium:
-  #   image: seleniarm/standalone-chromium:4.1.4-20220429
-  #   volumes:
-  #     - ./tmp/downloads:/bucketlist/tmp/downloads
+  #   image: seleniarm/standalone-chromium:latest
   #   ports:
-      # - 4444:4444  
+  #     - 4444:4444
   db:
     platform: linux/x86_64
     image: mysql:5.7
@@ -40,8 +34,6 @@ services:
       - ./environments/db.env
     volumes:
       - db-data:/var/lib/mysql
-  webdriver_chrome:
-    image: selenium/standalone-chrome   
   web:
     build:
       context: containers/nginx
