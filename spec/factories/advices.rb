@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :advice do
     content { '質問に対するアドバイスです' }
-    association :user
-    association :question
+    user
+    question
   end
 end

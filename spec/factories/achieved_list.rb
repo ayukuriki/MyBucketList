@@ -4,7 +4,7 @@ FactoryBot.define do
     report { 'テストデータの作成をする' }
     public { true }
     category_id { '1' }
-    achieved_date { '20120809' }
+    achieved_date  { '20120809' }
     user
   end
 end
