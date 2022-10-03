@@ -345,6 +345,7 @@ DEPENDENCIES
   net-smtp
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
+  rack-test
   rails (~> 6.1.6, >= 6.1.6.1)
   rails-i18n
   rspec-rails

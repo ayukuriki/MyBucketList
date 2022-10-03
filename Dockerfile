@@ -32,20 +32,17 @@ ADD . /bucketlist
 # puma.sockを配置するディレクトリを作成
 RUN mkdir -p tmp/sockets
 
-FROM ubuntu:latest
-ENV LC_ALL C
-ENV DEBIAN_FRONTEND noninteractive
-ENV DEBCONF_NONINTERACTIVE_SEEN true
+# FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:mozillateam/firefox-next
-RUN apt-get update && apt-get install -y firefox \
-  && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update
+# RUN apt upgrade -y
+# RUN apt install daemonize
+# RUN apt-get update
+# RUN apt -y install snapd
 
-RUN firefox -CreateProfile "headless /moz-headless"  -headless
-ADD user.js /moz-headless/
-
-ADD index.html /root/
-
-EXPOSE 6000
-CMD ["firefox", "-p", "headless", "-headless", "--start-debugger-server", "6000", "file:///root/index.html"]
+# FROM ubuntu:latest
+# RUN apt-get update && apt-get -y upgrade &&\
+#     apt-get install -y snap snapd
+# # RUN systemctl start snapd.service
+# RUN snap install firefox
+# ENTRYPOINT "firefox"

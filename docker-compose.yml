@@ -3,6 +3,8 @@ services:
   app:
     build:
       context: .
+    environment:
+      - DISPLAY=$DISPLAY
     # environment:
     #   SELENIUM_REMOTE_URL: http://webdriver_chrome:4444/wd/hub
     env_file:
@@ -18,11 +20,16 @@ services:
       # - firefox
   #     # - chromium
   # firefox:
-    # build: .
-    # volumes:
-    #   - /tmp/.X11-unix/:/tmp/.X11-unix/
-    # environment:
-    #   - DISPLAY=$DISPLAY
+  #   build: .
+  #   # image: selenium/standalone-firefox:latest
+  #   image: seleniarm/node-firefox:latest
+  #   ports:
+  #     - 4444:4444
+  #   tty: true  
+  #   environment:
+  #     - DISPLAY=$DISPLAY
+  #   volumes:
+  #     - /tmp/.X11-unix/:/tmp/.X11-unix/
   # chromium:
   #   image: seleniarm/standalone-chromium:latest
   #   ports:
