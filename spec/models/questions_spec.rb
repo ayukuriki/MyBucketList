@@ -1,7 +1,5 @@
 require 'rails_helper'
 RSpec.describe Question, type: :model do
-  let(:user) { build :user }
-
   before do
     @question = FactoryBot.create(:question)
   end
