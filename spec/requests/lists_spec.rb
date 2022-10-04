@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "Lists", type: :request do
-  let(:category1) { create(:category) }
-  let!(:list1) { create(:list, user_id: current_user.id, title: "リスト1", description: "リスト1説明", category_id: category1.id ) }
-  let!(:list2) { create(:list, user_id: not_current_user.id, category_id: category1.id) }
-  let!(:list3) { create(:list, user_id: not_current_user.id, title: "リスト3", public: false, category_id: category1.id) }
+  let!(:category1) { create(:category, id: 1) }
+  let!(:list1) { create(:list, user_id: current_user.id, title: "リスト1", description: "リスト1説明") }
+  let!(:list2) { create(:list, user_id: not_current_user.id) }
+  let!(:list3) { create(:list, user_id: not_current_user.id, title: "リスト3", public: false) }
   let(:current_user) { create(:user, name: "ログインユーザー", email: "login@gmail.com") }
   let(:not_current_user) { create(:user, name: "非ログインユーザー", email: "unlogin@gmail.com") }
 
   describe "mypageのテスト" do
-
     before do
       sign_in current_user
       get mypage_path
@@ -31,11 +30,10 @@ RSpec.describe "Lists", type: :request do
 
     it '新規ボタンが表示されている' do
       expect(response.body).to include '新規'
-    end  
+    end
   end
 
   describe "sharepageのテスト" do
-
     before do
       sign_in current_user
       get sharepage_path

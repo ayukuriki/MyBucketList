@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "achieved_list", type: :request do
-  let!(:achieved_list1) { create(:achieved_list, title: "達成タイトル", report: "達成できました", public: true, user_id: current_user.id) }
-  let!(:achieved_list2) { create(:achieved_list, title: "非公開", public: false) }
+  let!(:achieved_list1) { create(:achieved_list, title: "タイトル", user_id: current_user.id) }
+  let!(:achieved_list2) { create(:achieved_list, title: "非公開", report: "達成!", public: false) }
   let(:category1) { create(:category) }
   let(:current_user) { create(:user, name: "ログインユーザー", email: "login@gmail.com") }
   let(:user1) { create(:user, name: "ユーザー1", email: "user1@gmail.com") }
@@ -34,7 +34,7 @@ RSpec.describe "achieved_list", type: :request do
       expect(response.body).to include 'おめでとう'
     end
   end
-  
+
   it 'おめでとうボタンを押すとおめでとうの件数が1増える' do
     within(".congrats-container") do
       find('.link').click

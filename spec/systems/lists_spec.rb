@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'lists', type: :system do
-  let(:category1) { create(:category) }
-  let!(:list1) { create(:list, user_id: current_user.id, title: "リスト1", description: "リスト1説明", category_id: category1.id ) }
-  let!(:list2) { create(:list, user_id: not_current_user.id, title: "リスト2", category_id: category1.id) }
-  let!(:list3) { create(:list, user_id: not_current_user.id, title: "リスト3", public: false, category_id: category1.id) }
+  let!(:category1) { create(:category, id: 1) }
+  let!(:list1) { create(:list, user_id: current_user.id, title: "リスト1", description: "リスト1説明") }
+  let!(:list2) { create(:list, user_id: not_current_user.id, title: "リスト2") }
+  let!(:list3) { create(:list, user_id: not_current_user.id, title: "リスト3", public: false) }
   let(:current_user) { create(:user, name: "ログインユーザー", email: "login@gmail.com") }
   let(:not_current_user) { create(:user, name: "非ログインユーザー", email: "unlogin@gmail.com") }
 
@@ -14,7 +14,6 @@ RSpec.feature 'lists', type: :system do
   end
 
   feature '自分のリストが表示される' do
-
     background do
       visit mypage_path
     end
@@ -34,7 +33,6 @@ RSpec.feature 'lists', type: :system do
   end
 
   feature 'リストの作成' do
-
     background do
       visit mypage_path
     end
@@ -60,7 +58,6 @@ RSpec.feature 'lists', type: :system do
   end
 
   feature 'リストの編集' do
-
     background do
       visit mypage_path
     end
@@ -82,7 +79,6 @@ RSpec.feature 'lists', type: :system do
   end
 
   feature 'リストの削除' do
-
     background do
       visit mypage_path
     end
@@ -91,7 +87,7 @@ RSpec.feature 'lists', type: :system do
       find(".delete-link").click
       expect(page).not_to have_content 'リスト1タイトル'
     end
-  end  
+  end
 
   feature 'みんなのリストが表示される' do
     background do

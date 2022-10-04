@@ -4,7 +4,7 @@ RSpec.feature 'questions', type: :system do
   let!(:question1) { create(:question, title: "質問1タイトル", content: "質問1の中身", user_id: user1.id) }
   let!(:question2) { create(:question, title: "質問2タイトル", user_id: user1.id) }
   let!(:category1) { create(:category, id: 1) }
-  let!(:advice) { create(:advice, content:"アドバイス1", question_id: question1.id, user_id: user2.id) }
+  let!(:advice) { create(:advice, content: "アドバイス1", question_id: question1.id, user_id: user2.id) }
   let(:current_user) { create(:user, name: "ログインユーザー", email: "login@gmail.com") }
   let(:user1) { create(:user, name: "ユーザー1", email: "user1@gmail.com") }
   let(:user2) { create(:user, name: "ユーザー2", email: "user2@gmail.com") }
@@ -46,12 +46,10 @@ RSpec.feature 'questions', type: :system do
   end
 
   feature "質問の新規作成" do
-
     scenario '新規作成画面に遷移する' do
       click_on '質問する', match: :first
-      expect(page).to have_content '新規質問作成'      
+      expect(page).to have_content '新規質問作成'
     end
-
 
     scenario '質問の作成ができる' do
       visit new_question_path

@@ -13,7 +13,6 @@ RSpec.feature 'achieved_list', type: :system do
   end
 
   feature 'みんなの達成レポが表示される' do
-
     background do
       visit achieved_lists_path
     end
@@ -38,7 +37,7 @@ RSpec.feature 'achieved_list', type: :system do
     end
 
     scenario 'おめでとうボタンが表示されている' do
-        expect(page).to have_content "おめでとう"
+      expect(page).to have_content "おめでとう"
     end
 
     it 'おめでとうボタンを押すとおめでとうの件数が1増える' do

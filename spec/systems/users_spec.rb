@@ -17,7 +17,6 @@ RSpec.feature "users", type: :system do
   end
 
   feature 'ログインユーザーのプロフィールが表示される' do
-
     scenario 'ユーザー名が取得できるか' do
       expect(page).to have_content "ログインユーザー"
     end
