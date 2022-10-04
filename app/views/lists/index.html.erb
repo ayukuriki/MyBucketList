@@ -34,12 +34,12 @@
               </div>
               <div class="list-icons">
                 <div class="icon-link">
-                  <%= link_to  edit_list_path(list) do %>
+                  <%= link_to  edit_list_path(list), class: "edit-link" do  %>
                     <i class="fa-solid fa-pen-to-square"></i>
                   <% end %>
                 </div>
                 <div class="icon-link">
-                  <%= link_to list_path(list.id), method: :delete do %>
+                  <%= link_to list_path(list.id), method: :delete, class: "delete-link" do %>
                     <i class="fa-solid fa-trash-can"></i>
                   <% end %>
                 </div>
